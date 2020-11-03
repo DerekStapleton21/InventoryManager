@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Inventory_Manager.Models.UserParts>
+
+@{
+    ViewData["Title"] = "My Parts";
+}
+
+<h1>My Parts</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Part.PartName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Part.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Part.Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Part.SerialNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Part.PartName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Part.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Part.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Part.SerialNumber)
+            </td>
+            <td>
+                 |
+                <a asp-action="Delete" asp-controller="UserParts" asp-route-id="@item.UserPartsId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

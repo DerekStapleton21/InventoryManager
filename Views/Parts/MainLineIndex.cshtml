@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Inventory_Manager.Models.Parts>
+
+    @{
+        ViewData["Title"] = "MainLineIndex";
+    }
+
+    <h1>Main Line</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.partType.Section)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PartName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Size)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SerialNumber)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.partType.Section)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PartName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SerialNumber)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PartsId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.PartsId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PartsId">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+
